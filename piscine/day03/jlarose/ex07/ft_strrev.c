@@ -6,9 +6,11 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 11:42:19 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/01 11:56:48 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/03 18:06:14 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 char	*ft_strrev(char *str)
 {
@@ -29,4 +31,11 @@ char	*ft_strrev(char *str)
 		j--;
 	}
 	return (str);
+}
+
+int		main(void)
+{
+	char *str = "bomjour";
+	printf("%s", ft_strrev(str));
+	return (0);
 }

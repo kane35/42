@@ -6,11 +6,13 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 05:05:27 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/01 00:34:50 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/03 13:04:38 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+
+#include <stdio.h>
 
 void	ft_putchar(char c);
 
@@ -18,7 +20,6 @@ void	ft_putchar(char c)
 {
 	write(1, &c, 1);
 }
-
 
 int		main(void)
 {

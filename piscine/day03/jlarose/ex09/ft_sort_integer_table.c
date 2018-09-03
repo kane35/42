@@ -1,17 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 12:17:55 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/03 09:52:59 by jlarose          ###   ########.fr       */
+/*   Created: 2018/08/31 05:05:27 by jlarose           #+#    #+#             */
+/*   Updated: 2018/09/03 11:59:36 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include <stdlib.h>
 #include <stdio.h>
 
 void	ft_putchar(char c);
@@ -21,40 +20,43 @@ void	ft_putchar(char c)
 	write(1, &c, 1);
 }
 
-int		ft_atoi(char *str)
+void	ft_sort_integer_table(int *tab, int size)
 {
 	int i;
-	int r;
-	int neg;
-	int let;
+	int i2;
+	int itmp;
 
-	let = 0;
-	neg = 1;
-	r = 0;
+	i2 = 0;
 	i = 0;
-	while (*str)
+	while (i < size)
 	{
-		i = *str++ - '0';
-		if ((i >= 0 && i <= 9) && i != -3 && i != -5)
+		while (i2 < size)
 		{
-			let = 1;
-			r = r * 10 + i;
+			if (tab[i] < tab[i2])
+			{
+				itmp = tab[i];
+				tab[i] = tab[i2];
+				tab[i2] = itmp;
+			}
+			i2++;
 		}
-		else if ((i == -3 || i == -5) && neg == 1 && let == 0)
-			neg = -1;
-		else if (i == -16 && let == 0 && neg == 1)
-			lest = 0;
-		else
-			break ;
+		i2 = 0;
+		i++;
 	}
-	return (r * neg);
 }
 
 int		main(void)
 {
-	char	*str;
+	int i;
+	int tab[16] = {5, 5 ,8 , 46, 8, 411, 68, 4, 8, 56,68, 4, 58, 78, 9, 6};
 
-	str = "  +-1356456 42144856";
-	printf("%d", ft_atoi(str));
+	ft_sort_integer_table(tab, 16);
+	i = 0;
+	while (i < 16)
+	{
+		printf("%d", tab[i]);
+		printf("\n");
+		i++;
+	}
 	return (0);
 }
