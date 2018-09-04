@@ -1,40 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_iterative_power.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 13:09:44 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/04 13:09:50 by jlarose          ###   ########.fr       */
+/*   Created: 2018/09/04 13:08:18 by jlarose           #+#    #+#             */
+/*   Updated: 2018/09/04 13:08:23 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+
+#include <stdio.h>
+
 void	ft_putchar(char c);
 
-int		ft_iterative_factorial(int nb)
+void	ft_putchar(char c)
 {
-	int sign;
-	int resultat;
+	write(1, &c, 1);
+}
 
-	resultat = nb;
-	if (nb >= 12 || nb <= -12)
-		return (0);
-	if (nb > 0)
-	{
-		while (nb > 1)
-		{
-			nb--;
-			resultat *= nb;
-		}
-	}
-	else
-	{
-		while (nb < -1)
-		{
-			nb++;
-			resultat *= nb;
-		}
-	}
-	return (resultat);
+int		ft_iterative_power(int nb, int power)
+{
+	
+	return ();
+}
+
+int		main(void)
+{
+
+	return (0);
 }

@@ -5,12 +5,20 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 13:09:44 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/04 13:09:50 by jlarose          ###   ########.fr       */
+/*   Created: 2018/09/04 13:11:34 by jlarose           #+#    #+#             */
+/*   Updated: 2018/09/04 13:12:32 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
+#include <stdio.h>
+
 void	ft_putchar(char c);
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
 
 int		ft_iterative_factorial(int nb)
 {
@@ -37,4 +45,10 @@ int		ft_iterative_factorial(int nb)
 		}
 	}
 	return (resultat);
+}
+
+int		main(void)
+{
+	printf("%d", ft_iterative_factorial(-10));
+	return (0);
 }

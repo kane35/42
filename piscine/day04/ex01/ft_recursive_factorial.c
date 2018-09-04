@@ -1,40 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_recursive_factorial.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/04 13:09:44 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/04 13:09:50 by jlarose          ###   ########.fr       */
+/*   Created: 2018/09/04 11:00:52 by jlarose           #+#    #+#             */
+/*   Updated: 2018/09/04 12:08:47 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_putchar(char c);
 
-int		ft_iterative_factorial(int nb)
+int		ft_recursive_factorial(int nb)
 {
-	int sign;
-	int resultat;
-
-	resultat = nb;
-	if (nb >= 12 || nb <= -12)
+	if (nb > 12 || nb < -12)
 		return (0);
-	if (nb > 0)
-	{
-		while (nb > 1)
-		{
-			nb--;
-			resultat *= nb;
-		}
-	}
-	else
-	{
-		while (nb < -1)
-		{
-			nb++;
-			resultat *= nb;
-		}
-	}
-	return (resultat);
+	if (nb > 1)
+		nb *= ft_recursive_factorial(nb - 1);
+	if (nb < -1)
+		nb *= ft_recursive_factorial(nb + 1);
+	return (nb);
 }
