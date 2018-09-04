@@ -6,7 +6,7 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 05:05:27 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/03 19:27:02 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/04 02:13:49 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,34 @@ void	ft_putchar(char c)
 
 int		ft_iterative_factorial(int nb)
 {
+	int sign;
 	int resultat;
 
-	resultat = 0;
-	while ()
+	sign = 1;
+	if (nb >= 12 || nb <= -12)
+		return (0);
+	if (nb < 0)
 	{
-		resultat = 	nb * nb--;
+		nb *= -1;
+		if ((nb % 2) == 1)
+		{
+			sign = -1;
+		}
 	}
-
-	return (resultat);
+	resultat = nb;
+	while (nb > 1)
+	{
+		nb--;
+		resultat *= nb;
+	}
+	return (resultat * sign);
 }
 
 int		main(void)
 {
+	int resultat;
 
+	resultat = ft_iterative_factorial(0);
+	printf("%d", resultat);
 	return (0);
 }
