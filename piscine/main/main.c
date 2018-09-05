@@ -6,7 +6,7 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/08/31 05:05:27 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/03 13:04:38 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/05 11:00:00 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	ft_putchar(char c)
 
 int		main(void)
 {
-
+	char str[] = "Hello !";
+	ft_putstr(str);
 	return (0);
 }

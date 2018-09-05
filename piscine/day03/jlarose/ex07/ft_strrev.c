@@ -5,37 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/01 11:42:19 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/03 18:06:14 by jlarose          ###   ########.fr       */
+/*   Created: 2018/09/05 11:41:38 by jlarose           #+#    #+#             */
+/*   Updated: 2018/09/05 12:01:26 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 char	*ft_strrev(char *str)
 {
 	int		i;
-	int		j;
-	char	at;
+	int		length;
+	char	tmp;
 
 	i = 0;
-	j = 0;
-	while (*str)
-		j++;
-	while (i < j)
+	length = 0;
+	while (str[length] != '\0')
+		length++;
+	length--;
+	while (i < length)
 	{
-		at = str[i];
-		str[i] = str[j];
-		str[j] = at;
+		tmp = str[i];
+		str[i] = str[length];
+		str[length] = tmp;
 		i++;
-		j--;
+		length--;
 	}
 	return (str);
-}
-
-int		main(void)
-{
-	char *str = "bomjour";
-	printf("%s", ft_strrev(str));
-	return (0);
 }

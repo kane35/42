@@ -6,55 +6,34 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 12:17:55 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/03 09:52:59 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/05 12:15:30 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdio.h>
-
-void	ft_putchar(char c);
-
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
 int		ft_atoi(char *str)
 {
-	int i;
-	int r;
-	int neg;
 	int let;
+	int resultat;
 
-	let = 0;
-	neg = 1;
-	r = 0;
-	i = 0;
-	while (*str)
+	let = 1;
+	resultat = 0;
+	while (*str == ' ' || *str == '+' || *str == '\n' || *str == '\r')
 	{
-		i = *str++ - '0';
-		if ((i >= 0 && i <= 9) && i != -3 && i != -5)
-		{
-			let = 1;
-			r = r * 10 + i;
-		}
-		else if ((i == -3 || i == -5) && neg == 1 && let == 0)
-			neg = -1;
-		else if (i == -16 && let == 0 && neg == 1)
-			lest = 0;
-		else
-			break ;
+		str++;
 	}
-	return (r * neg);
-}
-
-int		main(void)
-{
-	char	*str;
-
-	str = "  +-1356456 42144856";
-	printf("%d", ft_atoi(str));
-	return (0);
+	while (*str == '\f' || *str == '\n' || *str == '\t' || *str == '\v')
+	{
+		str++;
+	}
+	if (*str == '-' && let == 1)
+	{
+		let = -1;
+		str + i;
+	}
+	while (*str >= '0' && *str <= '9')
+	{
+		resultat = resultat * 10 + *str - '0';
+		str++;
+	}
+	return (resultat * let);
 }

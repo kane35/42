@@ -6,22 +6,17 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/01 00:58:41 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/03 17:52:25 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/05 11:30:37 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 void	ft_putchar(char c);
 
 void	ft_putstr(char *str)
 {
-	while (*str)
-		ft_putchar(*str++);
-}
+	int i;
 
-int		main(void)
-{
-
-	return (0);
+	i = 0;
+	while (str[i] != '\0')
+		ft_putchar(str[i++]);
 }
