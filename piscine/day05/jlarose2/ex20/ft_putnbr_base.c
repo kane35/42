@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 15:31:27 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/16 04:04:09 by jlarose          ###   ########.fr       */
+/*   Created: 2018/09/17 01:28:05 by jlarose           #+#    #+#             */
+/*   Updated: 2018/09/17 01:31:26 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include <unistd.h>
 
-#include <stdio.h>
+void	ft_putchar(char c);
 
 int		ft_strlen(char *str)
 {
@@ -24,20 +24,30 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
-unsigned	int	ft_strlcat(char *dest, char *src, unsigned int size)
+void	ft_putnbr_base(int nbr, char *base)
 {
-	int i;
-	unsigned int sizer;
+	int n1;
+	int n2;
+	int up;
+	int ba;
 
-	sizer = (ft_strlen(src) + size);
-	i = 0;
-	while (dest[i])
-		i++;
-	while (i < size)
+	ba = ft_strlen(base);
+	up = 0;
+	if (nbr == -2147483648)
 	{
-		dest[i] = *src;
-		i++;
-		src++;
+		nbr++;
+		up = 1;
 	}
-	return (sizer);
+	if (nbr < 0)
+	{
+		ft_putchar('-');
+		nbr *= -1;
+	}
+	n1 = nbr % ba;
+	n2 = nbr / ba;
+	if (n2 > 0)
+		ft_putnbr_base(n2, base);
+	if (up == 1)
+		n1++;
+	ft_putchar(base[n1]);
 }
