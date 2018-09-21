@@ -6,14 +6,14 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/07 05:21:34 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/13 02:09:10 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/18 03:22:58 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 char	*ft_strstr(char *str, char *to_find)
 {
-	int 	i;
-	int 	j;
+	int i;
+	int j;
 
 	i = 0;
 	while (str[i])

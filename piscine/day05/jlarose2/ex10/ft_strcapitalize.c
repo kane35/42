@@ -6,7 +6,7 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/10 11:38:09 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/15 08:50:41 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/19 07:16:50 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,15 @@ char	*ft_strcapitalize(char *str)
 	{
 		if (str[i] == ' ' || str[i] == '-' || str[i] == '+')
 		{
-			if (str[i + 1] >= 'a' && str[i + 1] <= 'z')
+			if (str[i + 1] >= 'a' && str[i + 1] <= 'z' &&
+				str[i + 2] >= '!' && str[i + 2] <= '~')
+			{
 				str[i + 1] -= 32;
+				i += 2;
+			}
 		}
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
 		i++;
 	}
 	return (str);

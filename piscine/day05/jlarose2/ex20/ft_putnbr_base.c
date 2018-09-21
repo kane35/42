@@ -6,11 +6,9 @@
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/09/17 01:28:05 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/17 01:31:26 by jlarose          ###   ########.fr       */
+/*   Updated: 2018/09/18 03:51:15 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <unistd.h>
 
 void	ft_putchar(char c);
 
@@ -24,6 +22,30 @@ int		ft_strlen(char *str)
 	return (i);
 }
 
+int		verif(char *base)
+{
+	int i;
+	int j;
+	int m;
+
+	i = 0;
+	while (base[i])
+	{
+		j = i + 1;
+		m = 0;
+		while (base[j])
+		{
+			if (base[i] == base[j])
+				m = 1;
+			j++;
+		}
+		if (m == 1 || base[i] == '-' || base[i] == '+')
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
 void	ft_putnbr_base(int nbr, char *base)
 {
 	int n1;
@@ -32,22 +54,23 @@ void	ft_putnbr_base(int nbr, char *base)
 	int ba;
 
 	ba = ft_strlen(base);
-	up = 0;
-	if (nbr == -2147483648)
+	if (ba > 1 && verif(base))
 	{
-		nbr++;
-		up = 1;
+		up = 0;
+		if (nbr == -2147483648)
+		{
+			nbr++;
+			up = 1;
+		}
+		if (nbr < 0)
+		{
+			ft_putchar('-');
+			nbr *= -1;
+		}
+		n1 = nbr % ba;
+		n2 = nbr / ba;
+		if (n2 > 0)
+			ft_putnbr_base(n2, base);
+		ft_putchar(base[n1]);
 	}
-	if (nbr < 0)
-	{
-		ft_putchar('-');
-		nbr *= -1;
-	}
-	n1 = nbr % ba;
-	n2 = nbr / ba;
-	if (n2 > 0)
-		ft_putnbr_base(n2, base);
-	if (up == 1)
-		n1++;
-	ft_putchar(base[n1]);
 }

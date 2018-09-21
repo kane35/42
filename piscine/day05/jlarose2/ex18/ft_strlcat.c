@@ -1,43 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jlarose <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/09/10 15:31:27 by jlarose           #+#    #+#             */
-/*   Updated: 2018/09/16 04:04:09 by jlarose          ###   ########.fr       */
+/*   Created: 2018/09/10 13:16:42 by jlarose           #+#    #+#             */
+/*   Updated: 2018/09/19 07:12:49 by jlarose          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-
-#include <stdio.h>
-
-int		ft_strlen(char *str)
+unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	int i;
+	int j;
 
+	j = 0;
 	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-unsigned	int	ft_strlcat(char *dest, char *src, unsigned int size)
-{
-	int i;
-	unsigned int sizer;
-
-	sizer = (ft_strlen(src) + size);
-	i = 0;
+	while (src[j])
+		j++;
 	while (dest[i])
 		i++;
-	while (i < size)
+	if (i < size + j)
+		return (size + j);
+	while (*src)
 	{
 		dest[i] = *src;
 		i++;
 		src++;
 	}
-	return (sizer);
+	dest[i] = '\0';
+	return (size + j);
 }
